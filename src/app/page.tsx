@@ -60,9 +60,34 @@ gsap.from(h3.chars, {
   return (
     <>
 
-    <div className="font-sans grid grid-cols-2 p-8 pb-20 gap-16 sm:p-20 text-amber-200 place-items-center h-screen bg-[url('/dashboardBg.jpg')] bg-cover bg-center">
-    <div>
-      <h1 className={`text-4xl sm:text-9xl font-bold mb-4 ${luckiestGuy.className}`}>Pen Down</h1>
+    <div className="font-sans grid sm:grid-cols-2 grid-row-2 p-8 pb-20 gap-16 sm:p-20 text-amber-200 place-items-center h-screen bg-[url('/dashboardBg.jpg')] bg-cover bg-center">
+    <div className="w-100 h-100 md:w-150 md:h-150 relative">
+  <Canvas
+    shadows
+    className=""
+    camera={{
+      position: [4, 100, 10]
+    }}>
+    <Suspense fallback={null}>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1} />
+      <Model 
+      scale={1}
+      />
+      <OrbitControls
+      enableZoom={false}
+      enablePan={false}
+      autoRotate={true}
+      autoRotateSpeed={1}
+      />
+    </Suspense>
+
+  </Canvas>
+</div>
+
+    <div className="flex flex-col items-start justify-center h-auto w-auto mr-0">
+      <h1 className={`text-6xl sm:text-9xl font-bold mb-4 w-full text-nowrap ${luckiestGuy.className}`}>Pen</h1>
+      <h1 className={`text-6xl sm:text-9xl font-bold mb-4 w-full text-nowrap ${luckiestGuy.className}`}>Down</h1>
       <h3 className={`text-lg sm:text-xl mb-8 ${bitcount.className}`}>Track and keep up with your todos from anywhere!</h3>
       <Link href="/dashboard"
         className="px-6 py-3 bg-cyan-600 text-black font-bold rounded-lg hover:bg-cyan-500 transition-colors text-[clamp(1.2)]"
@@ -73,29 +98,6 @@ gsap.from(h3.chars, {
     </div>
       {/* <Link href="/dashboard"
       className="flex flex-row items-center justify-center gap-9 p-8  rounded-lg transition-colors duration-300 h-auto w-auto mr-0 "> */}
-        <div className="w-auto h-auto sm:w-300 sm:h-250 relative right-1">
-      <Canvas
-        shadows
-        className=""
-        camera={{
-          position: [4, 100, 10]
-        }}>
-        <Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <Model 
-          scale={1}
-          />
-          <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate={true}
-          autoRotateSpeed={1}
-          />
-        </Suspense>
-
-      </Canvas>
-    </div>
       {/* </Link> */}
         </div>
     </>
