@@ -3,3 +3,10 @@
 .next
 node_modules
 Dockerfile
+npm-debug.log
+.next
+!.next/static
+!.next/server
+!.next/edge
+README.md
+yarn.lock

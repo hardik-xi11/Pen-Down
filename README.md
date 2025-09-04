@@ -40,7 +40,6 @@
 - ❗ Error handling and validation for forms
 - 📱 Mobile-friendly and desktop-ready design
 - 🐳 Dockerized for easy deployment
-- 🤖 CI/CD pipeline with Jenkins
 
 <br/>
 
