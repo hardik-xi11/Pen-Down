@@ -53,7 +53,7 @@ export async function POST(request: Request) {
       );
     }
 
-          console.log('Login successful for:', user.username);
+  // (Temporary) avoid logging sensitive info in production
     // 4. Create a JWT if credentials are valid
     const token = jwt.sign(
       { userId: user.id, email: user.email, username: user.username },
@@ -70,12 +70,13 @@ export async function POST(request: Request) {
     // Set the JWT token in a cookie
     // Ensure the cookie is HTTP-only, secure, and has a reasonable expiration time
     // Cookie to remember user login for 7 days
+    const forceInsecure = process.env.FORCE_INSECURE_COOKIE === 'true';
     response.cookies.set('token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 60 * 60 * 24 * 7, // 7 days in seconds
+      secure: !forceInsecure && process.env.NODE_ENV === 'production',
+      maxAge: 60 * 60 * 24 * 7, // 7 days
       path: '/',
-      sameSite: 'strict',
+      sameSite: 'lax', // lax better for normal navigation flows
     });
 
     return response;

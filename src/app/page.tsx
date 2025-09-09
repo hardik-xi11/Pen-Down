@@ -85,7 +85,7 @@ gsap.from(h3.chars, {
   </Canvas>
 </div>
 
-    <div className="flex flex-col items-start justify-center h-auto w-auto mr-0">
+    <div className="flex flex-col items-start justify-center h-auto w-auto mr-0 text-white">
       <h1 className={`text-6xl sm:text-9xl font-bold mb-4 w-full text-nowrap ${luckiestGuy.className}`}>Pen</h1>
       <h1 className={`text-6xl sm:text-9xl font-bold mb-4 w-full text-nowrap ${luckiestGuy.className}`}>Down</h1>
       <h3 className={`text-lg sm:text-xl mb-8 ${bitcount.className}`}>Track and keep up with your todos from anywhere!</h3>
