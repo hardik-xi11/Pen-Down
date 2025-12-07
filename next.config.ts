@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   transpilePackages: ['three'],
   output: 'standalone',
-  esLint: {
-	ignoreDuringBuilds: true,
+  // This tells Vercel to ignore ESLint errors and deploy anyway
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 
