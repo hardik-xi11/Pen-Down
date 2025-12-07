@@ -64,7 +64,7 @@ gsap.from(h3.chars, {
     <div className="w-100 h-100 md:w-150 md:h-150 relative">
   <Canvas
     shadows
-    className=""
+    className="border-2 border-amber-400 rounded-lg"
     camera={{
       position: [4, 100, 10]
     }}>
